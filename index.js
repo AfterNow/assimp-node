@@ -1,7 +1,7 @@
 const { exec } = require('child_process');
 
 exports.assimp = function(args, cb) {
-		let child = exec(`${__dirname}/debian/bin/assimp ${args}`);
+		let child = exec(`${__dirname}/debian/bin/assimp ${args}`, {env: {'LD_LIBRARY_PATH': `${__dirname}/debian/lib`}});
 		let result = "";
 		let error = "";
 		child.stdout.on('data', (data) => {
