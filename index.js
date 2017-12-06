@@ -1,3 +1,5 @@
+'use strict';
+
 const _ = require('lodash');
 const { exec } = require('child_process');
 
@@ -12,7 +14,7 @@ exports.assimp = function(args, cb, options) {
 		child.stderr.on('data', (data) => {
 		    error += data;
 		});
-		
+
 		child.on('close', () => {
 			console.log(result);
 			console.error(error);
@@ -31,7 +33,7 @@ exports.FBX2glTF = function(args, cb, options) {
 		child.stderr.on('data', (data) => {
 		    error += data;
 		});
-		
+
 		child.on('close', () => {
 			console.log(result);
 			console.error(error);
